@@ -9,7 +9,7 @@ export default function Menu() {
 
   const menuItems = [
     { name: "Main", href: "/", icon: <AiOutlineHome /> },
-    { name: "Orders", href: "/orders", icon: <AiOutlineShoppingCart /> },
+    { name: "Buy", href: "/buy", icon: <AiOutlineShoppingCart /> },
    
     { name: "History", href: "/history", icon: <AiOutlineHistory /> },
      { name: "Analytics", href: "/analytics", icon: <AiOutlineLineChart /> },
@@ -18,7 +18,9 @@ export default function Menu() {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.logo}>CRM</div>
+        <div className={styles.logo}>
+          <a href="/">CRM</a>
+        </div>
         <div className={styles.links}>
           {menuItems.map(item => (
             <a
@@ -31,14 +33,23 @@ export default function Menu() {
           ))}
         </div>
         <div className={styles.profile}>
-          <AiOutlineUser size={24} />
+          <a href="profile"
+              className={pathname === "/profile" ? `${styles.link} ${styles.active}` : styles.link}
+            >
+            Profile
+          </a>
         </div>
       </div>
 
       <div className={styles.mobileTop}>
-        <div className={styles.mobileLogo}>CRM</div>
+        <div className={styles.mobileLogo}>
+          <a href="/">
+          CRM</a>
+        </div>
         <div className={styles.mobileProfile}>
-          <a href="profile">
+          <a href="profile"
+              className={pathname === "/profile" ? `${styles.link} ${styles.active}` : styles.link}
+            >
             <AiOutlineUser size={24} />
           </a>
         </div>
